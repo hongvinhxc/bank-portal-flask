@@ -1,3 +1,4 @@
 # Ignoring Environment Files
 .idea
+__pycache__/
 mongoData

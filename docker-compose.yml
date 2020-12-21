@@ -13,7 +13,7 @@ services:
     container_name: bank-api-container
     depends_on:
       - mongo
-    command: python app.py
+    command: python src/app.py
     ports:
       - "5001:5001"
     environment:

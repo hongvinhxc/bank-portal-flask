@@ -1,0 +1,20 @@
+Update account information
+---
+tags:
+  - products
+parameters:
+  - name: accountid
+    in: path
+    type: string
+    required: true
+  - name: email
+    in: formData
+    type: string
+    required: false
+  - name: name
+    in: formData
+    type: string
+    required: false
+responses:
+  200:
+    description: Update succeded
