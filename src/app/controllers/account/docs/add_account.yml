@@ -1,0 +1,16 @@
+Create account
+---
+tags:
+  - products
+parameters:
+  - name: email
+    in: formData
+    type: string
+    required: true
+  - name: name
+    in: formData
+    type: string
+    required: true
+responses:
+  200:
+    description: Creation succeded

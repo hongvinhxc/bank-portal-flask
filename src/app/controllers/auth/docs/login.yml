@@ -1,0 +1,26 @@
+Login
+---
+tags:
+  - auth
+parameters:
+  - name: username
+    in: formData
+    type: string
+    required: true
+  - name: password
+    in: formData
+    type: string
+    required: true
+definitions:
+  Account:
+    type: object
+    properties:
+      token:
+        type: string
+responses:
+  200:
+    description: Auth model
+    schema:
+      $ref: '#/definitions/Auth'
+  404:
+    description: User not found

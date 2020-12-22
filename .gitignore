@@ -1,4 +1,5 @@
 # Ignoring Environment Files
 .idea
+.vscode/
 __pycache__/
 mongoData

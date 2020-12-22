@@ -3,7 +3,7 @@ import json
 from pymongo import MongoClient 
 
 host = os.getenv("MONGO_HOST")
-port = os.getenv("MONGO_PORT")
+port = int(os.getenv("MONGO_PORT"))
 dbname = os.getenv("MONGO_DB")
 
 myclient = MongoClient(host, port)

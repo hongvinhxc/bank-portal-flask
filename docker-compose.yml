@@ -4,7 +4,7 @@ services:
     image: "mongo"
     container_name: bank-mongo-container
     ports:
-      - "27017:27017"
+      - "27020:27017"
     volumes:
       - ./mongoData:/data/db
 
@@ -13,7 +13,7 @@ services:
     container_name: bank-api-container
     depends_on:
       - mongo
-    command: python src/app.py
+    command: python src/run.py
     ports:
       - "5001:5001"
     environment:

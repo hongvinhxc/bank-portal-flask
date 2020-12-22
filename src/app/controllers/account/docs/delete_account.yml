@@ -1,0 +1,12 @@
+Delete operation for a account
+---
+tags:
+  - products
+parameters:
+  - name: accountid
+    in: path
+    type: string
+    required: true
+responses:
+  200:
+    description: account deleted
