@@ -3,14 +3,34 @@ Create account
 tags:
   - products
 parameters:
-  - name: email
-    in: formData
-    type: string
-    required: true
-  - name: name
-    in: formData
-    type: string
-    required: true
+  - in: body
+    name: user
+    schema:
+      name: Account
+      type: object
+      properties:
+        account_number:
+          type: number
+        balance:
+          type: number
+        firstname:
+          type: string
+        lastname:
+          type: string
+        age:
+          type: number
+        gender:
+          type: string
+        address:
+          type: string
+        employer:
+          type: string
+        email:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
 responses:
   200:
     description: Creation succeded

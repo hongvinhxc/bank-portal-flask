@@ -23,8 +23,10 @@ class Model(dict):
 
     def remove(self):
         if self._id:
-            self.collection.remove({"_id": ObjectId(self._id)})
+            result = self.collection.remove({"_id": ObjectId(self._id)})
             self.clear()
+            if result["n"]== 0:
+                raise BaseException("Account is not exist")
 
     def count(self):
         return self.collection.count_documents({})

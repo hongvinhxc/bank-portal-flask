@@ -3,18 +3,64 @@ Update account information
 tags:
   - products
 parameters:
-  - name: accountid
-    in: path
-    type: string
-    required: true
-  - name: email
-    in: formData
-    type: string
-    required: false
-  - name: name
-    in: formData
-    type: string
-    required: false
+  - in: body
+    name: user
+    schema:
+      name: Account
+      type: object
+      properties:
+        _id:
+          type: string
+        account_number:
+          type: number
+        balance:
+          type: number
+        firstname:
+          type: string
+        lastname:
+          type: string
+        age:
+          type: number
+        gender:
+          type: string
+        address:
+          type: string
+        employer:
+          type: string
+        email:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+definitions:
+  Account:
+    type: object
+    properties:
+      _id:
+        type: string
+      account_number:
+        type: number
+      balance:
+        type: number
+      firstname:
+        type: string
+      lastname:
+        type: string
+      age:
+        type: string
+      gender:
+        type: string
+      address:
+        type: string
+      employer:
+        type: string
+      email:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
 responses:
   200:
     description: Update succeded

@@ -4,11 +4,11 @@ tags:
   - products
 parameters:
   - name: pageSize
-    in: formData
+    in: query
     type: integer
     required: false
   - name: pageIndex
-    in: formData
+    in: query
     type: integer
     required: false
 definitions:
@@ -18,31 +18,7 @@ definitions:
       data:
         type: array
         items:
-          properties:
-            _id:
-              type: string
-            account_number:
-              type: integer
-            balance:
-              type: integer
-            firstname:
-              type: string
-            lastname:
-              type: string
-            age:
-              type: string
-            gender:
-              type: string
-            address:
-              type: string
-            employer:
-              type: string
-            email:
-              type: string
-            city:
-              type: string
-            state:
-              type: string
+          $ref: '#/definitions/Account'
       total:
         type: integer
       pageSize:

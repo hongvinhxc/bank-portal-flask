@@ -3,16 +3,20 @@ Login
 tags:
   - auth
 parameters:
-  - name: username
-    in: formData
-    type: string
-    required: true
-  - name: password
-    in: formData
-    type: string
-    required: true
+  - in: body
+    name: user
+    schema:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+        password:
+          type: string
 definitions:
-  Account:
+  Auth:
     type: object
     properties:
       token:
@@ -21,6 +25,6 @@ responses:
   200:
     description: Auth model
     schema:
-      $ref: '#/definitions/Auth'
+      $ref: "#/definitions/Auth"
   404:
     description: User not found
