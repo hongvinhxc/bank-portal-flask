@@ -16,14 +16,21 @@ def get_accounts():
 
     pageSize = int(request.args.get("pageSize")) if "pageSize" in request.args else 10
     pageIndex = int(request.args.get("pageIndex")) if "pageIndex" in request.args else 1
-    account_list = Account().getList(pageSize, pageIndex)
-    total = Account().count()
+    keyword = request.args.get("keyword") if "keyword" in request.args else ''
+    account_list = Account().getList(pageSize, pageIndex, keyword)
     data = list(account_list)
+    totalData = data[0]['totalData'],
+    totalCount = data[0]['totalCount']
+    if not totalCount:
+        total = 0
+    else:
+        total = totalCount[0]['count']
     extracted = {
-        "data": data,
+        "data": totalData[0],
         "total": total,
         "pageSize": pageSize,
         "pageIndex": pageIndex,
+        'keyword': keyword,
         "success": True,
     }
     return Response(
