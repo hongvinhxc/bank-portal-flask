@@ -14,5 +14,5 @@ class User(Model):
             "username": self.username
         })
         if user and user["password"] == password_hashed:
-            return str(user["_id"])
+            return user
         return False

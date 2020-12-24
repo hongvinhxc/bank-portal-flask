@@ -24,9 +24,14 @@ def login():
     user = User({"username": username, "password": password})
     result = user.checkExist()
     if not result:
-        message = {"success": False, "message": "Tài khoản hoặc mật khẩu không chính xác"}
+        message = {
+            "success": False,
+            "message": "Tài khoản hoặc mật khẩu không chính xác",
+        }
     else:
-        token = generateToken({"id": result})
+        token = generateToken(
+            {"id": str(result["_id"]), "username": result["username"]}
+        )
         message = {"success": True, "token": token}
     return Response(
         json_util.dumps(message, default=json_util.default),

@@ -72,6 +72,7 @@ def update_account(accountid):
             status=404,
             mimetype="application/json",
         )
+    data["_id"] = accountid
     account = Account(data)
     account.save()
     return Response(
